@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<title>Aankomend medewerker grondoptreden (VeVa)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A5;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  @media print {
+    * {
+      box-sizing: border-box !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body { margin: 0 !important; padding: 0 !important; }
+    html { margin: 0 !important; padding: 0 !important; }
+    .page {
+      page-break-after: always !important;
+      page-break-inside: avoid !important;
+      break-after: page !important;
+      break-inside: avoid !important;
+      margin: 0 !important;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { font-family: 'Inter', Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; }
+  .page {
+    page-break-after: always;
+    page-break-inside: avoid;
+    width: 148mm;
+    height: 210mm;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  .p1 {
+    background:#00373d; /* Donkergroen passend bij defensie en veiligheid */
+    color:#fff;
+    height: 210mm;
+    width: 148mm;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 6mm;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "cover"
+      "title";
+    gap: 3mm;
+    margin: 0;
+  }
+  .header {
+    grid-area: header;
+    text-align: center;
+    align-self: start;
+  }
+  .logo { font-family: 'Inter', sans-serif; font-weight:900; font-size:60pt; letter-spacing:-1pt; line-height: 0.85; }
+  .dept {
+    font-family: 'Inter', sans-serif;
+    font-weight:900;
+    font-size:20pt;
+    margin-top:2mm;
+    letter-spacing:0.5pt;
+    line-height: 0.9;
+    max-width: 136mm;
+    word-wrap: break-word;
+    hyphens: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cover {
+    grid-area: cover;
+    height: 65mm;
+    position: relative;
+    background: #00373d;
+    overflow: hidden;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+  }
+  .cover img {
+    width: 90mm;
+    height: 60mm;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+  }
+  .title {
+    grid-area: title;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 18pt;
+    font-weight: 700;
+    line-height: 1.1;
+    align-self: end;
+    margin-bottom: 0;
+  }
+
+  /* PAGE 2 */
+  .p2 {
+    background:#fff;
+    color:#000;
+    padding: 6mm;
+    height: 210mm;
+    width: 148mm;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    page-break-after: avoid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+    grid-template-areas:
+      "header-left header-right"
+      "title title"
+      "description description"
+      "content-left content-right"
+      "footer footer";
+    gap: 2.5mm;
+    margin: 0;
+  }
+
+  .header-info {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-column: 1 / -1;
+    margin-bottom: 3mm;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 7pt;
+    color: #00373d;
+    align-items: center;
+  }
+  .header-left { justify-self: start; }
+  .header-center { justify-self: center; }
+  .header-right { justify-self: end; }
+
+  .main-title {
+    grid-area: title;
+    color:#00373d;
+    font-family: 'Inter', sans-serif;
+    font-size:16pt;
+    font-weight:700;
+    margin:0 0 3mm;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .main-description {
+    grid-area: description;
+    font-family: 'Inter', sans-serif;
+    font-size:7pt;
+    font-weight:400;
+    line-height:1.2;
+    margin-bottom:2mm;
+    overflow: hidden;
+  }
+  .main-description p { margin: 0 0 1.5mm 0; }
+
+  .content-left {
+    grid-area: content-left;
+    font-family: 'Inter', sans-serif;
+    font-size: 7pt;
+    font-weight: 400;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+
+  .content-right {
+    grid-area: content-right;
+    font-family: 'Inter', sans-serif;
+    font-size: 7pt;
+    font-weight: 400;
+    line-height: 1.2;
+    overflow: auto;
+  }
+
+  .info-block {
+    margin-bottom: 3mm;
+    border-left: 2px solid #00373d;
+    padding-left: 2.5mm;
+  }
+
+  .info-block h3 {
+    color: #00373d;
+    font-weight: 700;
+    font-size: 7pt;
+    margin: 0 0 1mm 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+  }
+
+  .info-block p {
+    margin: 0;
+    font-size: 6pt;
+    line-height: 1.1;
+  }
+
+  .footer-contact {
+    grid-area: footer;
+    color:#00373d;
+    font-family: 'Inter', sans-serif;
+    font-weight:900;
+    text-align:center;
+    font-size:9pt;
+    line-height: 1.3;
+    margin-top: auto;
+    padding: 2mm 0;
+  }
+  a { color: #00373d; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page p1">
+  <div class="header">
+    <div class="logo">Talland</div>
+    <div class="dept">HANDHAVING EN VEILIGHEID</div>
+  </div>
+
+  <div class="cover">
+    <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/aankomend-medewerker-grondoptreden-veva/2025-08-26T21-24-38-266Z-145p5d.png" alt="Soldaat in opleiding">
+  </div>
+
+  <div class="title">Aankomend medewerker grondoptreden (VeVa)</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page p2">
+  <div class="header-info">
+    <div class="header-left">MBO / BOL</div>
+    <div class="header-center">Niveau 2</div>
+    <div class="header-right">1,5 jaar</div>
+  </div>
+ 
+  <h1 class="main-title">Aankomend medewerker grondoptreden (VeVa)</h1>
+ 
+  <div class="main-description">
+    <p>Houd je van actie, avontuur en samenwerken? Tijdens de opleiding leer je alles over werken bij Defensie en veiligheid met militaire basisvaardigheden, samenwerken en beveiligingstaken.</p>
+  </div>
+ 
+  <div class="content-left">
+    <h3>Wat leer je?</h3>
+    <ul style="margin: 0; padding-left: 4mm; font-size: 7pt; line-height: 1.3;">
+      <li>Militaire basisvaardigheden uitvoeren, waaronder beveiliging</li>
+      <li>Samenwerken en gezamenlijk taken uitvoeren</li>
+      <li>Algemene vakken: Nederlands, rekenen, loopbaan & burgerschap en keuzedelen</li>
+      <li>Keuzedelen: verdieping blijvend fit, digitale vaardigheden, weerbaarheid</li>
+    </ul>
+  </div>
+ 
+  <div class="content-right">
+    <div class="info-block">
+      <h3>Locatie & Startperiode</h3>
+      <p>Purmerend (BOL)<br>
+         Augustus</p>
+    </div>
+    <div class="info-block">
+      <h3>Vooropleiding & Toelating</h3>
+      <p>Diploma vmbo of mbo Entree niveau 1. Nederlandse nationaliteit. Geen strafblad. Positief advies intake en positieve keuring SMA. VOG vereist.</p>
+    </div>
+    <div class="info-block">
+      <h3>Kosten</h3>
+      <p>Lesgeld afhankelijk van leerweg. Leermiddelen circa €1000,- exclusief laptop.</p>
+    </div>
+  </div>
+ 
+  <div class="footer-contact">
+    MEER INFORMATIE?<br>
+    Bart van Gompel - <a href="mailto:b.vangompel@talland.nl">b.vangompel@talland.nl</a><br>
+    Tel: 088 804 6000
+  </div>
+</section>
+
+</body>
+</html>

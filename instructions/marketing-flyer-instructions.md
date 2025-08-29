@@ -5,7 +5,7 @@
 ## CUSTOMIZATION REQUIREMENTS
 
 ### 1. Content Adaptation
-**Primary Task**: Transform the template from "Zelfstandig werkend bakker" (BAKKERIJ) to the user's specified educational program.
+**Primary Task**: Transform the template from "Zelfstandig werkend bakker"  to the user's specified educational program.
 
 **Required Changes:**
 - Replace all program-specific content with user's program details
@@ -166,7 +166,7 @@ Deliver complete HTML file with all customizations applied, ready for immediate 
 
 The following template serves as the base for all customizations:
 
-```html
+
 <!doctype html>
 <html lang="nl">
 <head>
@@ -571,47 +571,5 @@ The following template serves as the base for all customizations:
 
 </body>
 </html>
-```
-    <ul style="margin: 0; padding-left: 4mm; font-size: 7pt; line-height: 1.3;">
-      <li>Onderwijs voorbereiden en auto's inspecteren.</li>
-      <li>Hoe auto's in elkaar zitten en hoe je onderdelen monteert en lost en werken.</li>
-      <li>Alles over voertuigelektronica, veiligheidssystemen en accessoires.</li>
-      <li>Onderhoudsbeurten en reparaties uitvoeren</li>
-    </ul>
-  </div>
- 
-  <div class="content-right">
-    <div class="info-block">
-      <h3>LOREM IPSUM 2 - SIT AMET</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
-    </div>
-   
-    <div class="info-block">
-      <h3>LOCATIE</h3>
-      <p><strong>NIVEAU:</strong> 3<br>
-      <strong>LEERWEG:</strong> derde leerweg<br>
-      <strong>START:</strong> Bij voorkeur kunnen beginnelingen zijn of meedere startmomenten<br>
-      <strong>KOSTEN:</strong> 13900,- (inclusief examenkosten, exclusief leermiddelen)</p>
-    </div>
-   
-    <div class="info-block">
-      <h3>LOREM IPSUM 3 - SIT AMET</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
-    </div>
-  </div>
- 
-  <div class="footer-contact">
-    MEER INFORMATIE?<br>
-    Lorem ipsum - 012 345 678 90<br>
-    lorem@horizoncollege.nl
-  </div>
-</section>
-
-
-</body>
-</html>
-
-
-
 
 

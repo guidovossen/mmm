@@ -51,6 +51,19 @@
 - Adjust font sizes or content length if necessary
 - Maintain readability and professional appearance
 
+### 6. Header Layout Protection
+**CRITICAL - Header Info Elements:**
+- The three header items (education type, level, duration) MUST stay on one line
+- **Maximum content length guidelines:**
+  - Left item: 15 characters max (e.g., "MBO / BOL")
+  - Center item: 10 characters max (e.g., "Niveau 3") 
+  - Right item: 8 characters max (e.g., "3 jaar")
+- If content exceeds these limits, use abbreviations:
+  - "MBO/BOL" instead of "MBO / BOL"
+  - "Niv 3" instead of "Niveau 3"
+  - "3j" instead of "3 jaar"
+- **NEVER** allow header content to wrap to multiple lines or overflow outside the header area
+
 ## TEMPLATE STRUCTURE
 
 ### Page 1 (Cover Page)
@@ -128,6 +141,7 @@ https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/[filename]
 ### Pre-Delivery Checklist:
 - [ ] All content updated to new program
 - [ ] Header branding remains unchanged (Talland COLLEGE)
+- [ ] Header info items stay within character limits and on single line
 - [ ] Appropriate color selected and applied consistently
 - [ ] All images replaced with relevant alternatives
 - [ ] Call-to-action integrated (if provided)
@@ -335,11 +349,42 @@ The following template serves as the base for all customizations:
     font-size: 12pt; 
     color: #996b2a;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 15pt;
+    max-height: 15pt;
+    position: relative;
+    z-index: 10;
   }
   
-  .header-left { justify-self: start; }
-  .header-center { justify-self: center; }
-  .header-right { justify-self: end; }
+  .header-left { 
+    justify-self: start; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-center { 
+    justify-self: center; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 2mm;
+    flex-shrink: 0;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-right { 
+    justify-self: end; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
   
   .main-title { 
     grid-area: title;

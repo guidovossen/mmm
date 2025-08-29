@@ -14,23 +14,29 @@
 - Ensure all text is relevant to the new educational context
 
 ### 2. Color Selection
-**Background Color Rule**: Choose ONE appropriate color from the Talland color palette:
+**CRITICAL REQUIREMENT**: Choose ONE appropriate color from the Talland color palette based on the educational program's field/industry.
 
-| Color | Hex Code | Best Used For |
-|-------|----------|---------------|
-| Rood | #e61e3f | Health, Emergency Services, Passion-driven fields |
-| Blauw | #3355ff | Technology, Business, Professional services |
-| Groen-geel | #c2b723 | Agriculture, Environment, Sustainability |
-| Donkergroen | #00373d | Nature, Forestry, Environmental sciences |
-| Paars | #7D29C2 | Creative fields, Arts, Design |
-| Zand | #996b2a | Construction, Crafts, Traditional trades |
-| Teal | #20828d | Healthcare, Wellness, Marine studies |
-| Grijs | #99988d | Technical, Engineering, Neutral professions |
+| Color | Hex Code |
+|-------|----------|
+| Rood | #e61e3f |
+| Blauw | #3355ff |
+| Groen-geel | #c2b723 |
+| Donkergroen | #00373d |
+| Paars | #7D29C2 |
+| Zand | #996b2a |
+| Teal | #20828d |
+| Grijs | #99988d |
 
-**Selection Guidelines:**
+**MANDATORY Selection Guidelines:**
+- **ANALYZE** the educational program to determine its field/industry
+- **MATCH** the color logically to the profession and industry context
+- **AVOID** inappropriate combinations (e.g., bright/playful colors for serious/formal professions)
 - Choose colors that logically match the profession
-- **AVOID** inappropriate combinations (e.g., purple for military programs)
 - Consider industry associations and visual psychology
+- **APPLY** the selected color consistently throughout the template
+- Choose colors that logically match the profession
+- Consider industry associations and visual psychology
+- **APPLY** the selected color consistently throughout the template
 
 ### 3. Image Replacement
 **Image Update Rules:**
@@ -115,7 +121,7 @@ Update footer with:
 ## TECHNICAL SPECIFICATIONS
 
 ### Color Implementation
-Replace all instances of `#996b2a` (current sand color) with selected color:
+**CRITICAL**: Replace all instances of `#996b2a` (current sand color) with your selected profession-appropriate color:
 - `.p1` background
 - `.cover` background  
 - `.header-info` color
@@ -123,6 +129,12 @@ Replace all instances of `#996b2a` (current sand color) with selected color:
 - `.info-block h3` color
 - `.info-block` border-left color
 - `.footer-contact` color
+- `.call-to-action` background
+
+**Color Selection Validation:**
+- Ensure the color choice is justified and appropriate for the educational program
+- Document your color selection reasoning
+- Verify visual coherence across all template elements
 
 ### Image URL Structure
 Maintain the existing URL pattern:
@@ -142,7 +154,10 @@ https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/[filename]
 - [ ] All content updated to new program
 - [ ] Header branding remains unchanged (Talland COLLEGE)
 - [ ] Header info items stay within character limits and on single line
-- [ ] Appropriate color selected and applied consistently
+- [ ] Educational program analyzed for appropriate color selection
+- [ ] Profession-appropriate color selected from approved palette (NOT inappropriate like purple for military)
+- [ ] Color selection justified and documented
+- [ ] All color instances replaced consistently throughout template
 - [ ] All images replaced with relevant alternatives
 - [ ] Call-to-action integrated (if provided)
 - [ ] No text overlapping detected
@@ -151,6 +166,8 @@ https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/[filename]
 
 ### Validation Requirements:
 - Content relevance to educational program
+- **Color appropriateness**: Logical match between selected color and profession/industry
+- **Color application**: Consistent use throughout all template elements
 - Visual coherence with selected color
 - Proper text hierarchy and readability
 - Functional print layout (A5 format)

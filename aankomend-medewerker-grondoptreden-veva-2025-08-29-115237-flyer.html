@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<title>Uitvoerend bakker</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  @page { 
+    size: A5; 
+    margin: 0 !important; 
+    -webkit-print-color-adjust: exact; 
+    print-color-adjust: exact;
+  }
+  @media print {
+    * { 
+      box-sizing: border-box !important; 
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body { margin: 0 !important; padding: 0 !important; }
+    html { margin: 0 !important; padding: 0 !important; }
+    .page { 
+      page-break-after: always !important; 
+      page-break-inside: avoid !important; 
+      break-after: page !important; 
+      break-inside: avoid !important;
+      margin: 0 !important;
+      padding: 0;
+    }
+  * { box-sizing: border-box; }
+  html, body { font-family: 'Inter', Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; }
+  .page { 
+    page-break-after: always; 
+    page-break-inside: avoid;
+  }
+  }
+  * { box-sizing: border-box; }
+  html, body { font-family: 'Inter', sans-serif;  font-weight:900; font-size:90pt; letter-spacing:-1.5pt; line-height: 0.75; }
+  .page { 
+    page-break-after: always; 
+    page-break-inside: avoid;
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    grid-area: header;
+    text-align: center; 
+    align-self: start;
+  }
+  .logo { font-family: 'Inter', sans-serif; font-weight:900; font-size:90pt; letter-spacing:-1.5pt; line-height: 0.75; }
+  .dept { font-family: 'Inter', sans-serif;  font-weight:900; font-size:30pt;  margin-top:0.5m;  letter-spacing:0.8pt;  line-height: 0.85;
+    max-width: 136mm; /* Matches Talland width constraint */
+    word-wrap: break-word;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  .p1 {
+    background:#996b2a; /* Talland zand */
+    color:#fff; 
+    height: 210mm; 
+    width: 148mm; 
+    box-sizing: border-box; 
+    overflow: hidden; 
+    padding: 6mm;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto 1fr;
+    grid-template-areas: 
+      "header"
+      "cover"
+      "title"
+      "description"
+      "content-left content-right"
+      "cta cta"
+      "footer footer";
+    gap: 3mm;
+    margin: 0;
+  }
+  .header-info {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-column: 1 / -1;
+    margin-bottom: 3mm;
+    font-family: 'Inter', sans-serif; 
+    font-weight: 700; 
+    font-size: 12pt; 
+    color: #996b2a;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 15pt;
+    max-height: 15pt;
+  }
+  .header-left { 
+    justify-self: start; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-right { 
+    justify-self: end;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .main-title { 
+    grid-area: title;
+    color:#996b2a; 
+    font-family: 'Inter', sans-serif; 
+    font-size:18pt; 
+    font-weight:700; 
+    margin:0 0 3mm 0; 
+    line-height: 1.1; 
+    text-align: center;
+  }
+  .main-description { 
+    grid-area: description;
+    font-family: 'Inter', sans-serif; 
+    font-size:10pt; 
+    font-weight:400; 
+    line-height:1.2; 
+    margin-bottom:2mm;
+    overflow: hidden;
+  }
+  .content-left {
+    grid-area: content-left;
+    font-family: 'Inter', sans-serif; 
+    font-size:12pt; 
+    font-weight:400; 
+    line-height:1.2; 
+    overflow: hidden;
+  }
+  .content-right {
+    grid-area: content-right;
+    font-family: 'Inter', sans-serif; 
+    font-size:12pt; 
+    font-weight:400; 
+    line-height:1.2; 
+    overflow: hidden;
+  }
+  .cta {
+    grid-area: cta;
+    background: #996b2a;
+    color:#fff;
+    padding: 4mm;
+    font-family: 'Inter', sans-serif; 
+    font-size: 10pt; 
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .footer-contact {
+    grid-area: footer;
+    color:#996b2a;
+    font-family: 'Inter', sans-serif; 
+    font-size: 9pt; 
+    font-weight: 400;
+    text-align: center;
+    margin-top: 2mm;
+  }
+  .cover img {
+    width: 100%;
+    height: 70mm;
+    object-fit: cover;
+  }
+  .top-image img, .bottom-image img {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .main-image {
+    width: 95mm;
+    height: 60mm;
+    top: 5mm;
+    left: 2mm;
+    z-index: 1;
+    transform: rotate(-1deg);
+  }
+
+  .top-image {
+    width: 65mm;
+    height: 45mm;
+    top: 2mm;
+    right: 5mm;
+    z-index: 2;
+    transform: rotate(2deg);
+  }
+
+  .bottom-image {
+    width: 60mm;
+    height: 40mm;
+    bottom: 5mm;
+    right: 8mm;
+    z-index: 3;
+    transform: rotate(-0.5deg);
+  }
+
+  .cover img {
+    width: 100%; height: 100%; object-fit: cover; }
+
+  /* Single image fallback */
+  .cover.single-image img {
+    height: 100mm;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page p1">
+  <div class="header">
+    <div class="logo">Talland</div>
+    <div class="dept">COLLEGE</div>
+  </div>
+
+  <div class="cover">
+    <!-- Voor 3 afbeeldingen: gebruik onderstaande structuur -->
+    <div class="main-image">
+      <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/aankomend-medewerker-grondoptreden-veva/2025-08-26T21-24-38-266Z-145p5d.png" alt="Main Image">
+    </div>
+    <div class="top-image">
+      <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/aankomend-medewerker-grondoptreden-veva/2025-08-26T21-28-54-512Z-qm6a7a.png" alt="Top Image">
+    </div>
+    <div class="bottom-image">
+      <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/aankomend-medewerker-grondoptreden-veva/2025-08-26T21-32-25-321Z-1buzli.png" alt="Bottom Image">
+    </div>
+  </div>
+
+  <!-- Voor 1 afbeelding: gebruik onderstaande structuur -->
+  <!--
+  <div class="cover single-image">
+    <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/aankomend-medewerker-grondoptreden-veva/2025-08-26T21-24-38-266Z-145p5d.png" alt="Cover Image">
+  </div>
+  -->
+
+  <div class="main-title">Zelfstandig werkend bakker</div>
+
+  <div class="main-description">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+  </div>
+
+  <div class="content-left">
+    <h3 style="color: #996b2a; font-weight: 700; margin: 0 0 2mm 0; font-size: 12pt;">LOREM IPSUM 1 - SIT AMET</h3>
+    <ul style="margin: 0; padding-left: 4mm; font-size: 10pt; line-height: 1.3;">
+      <li>Onderwijs voorbereiden en auto's inspecteren.</li>
+      <li>Hoe auto's in elkaar zitten en hoe je onderdelen monteert en lost en werken.</li>
+      <li>Alles over voertuigelektronica, veiligheidssystemen en accessoires.</li>
+      <li>Onderhoudsbeurten en reparaties uitvoeren</li>
+    </ul>
+  </div>
+
+  <div class="content-right">
+    <div class="info-block">
+      <h3>LOREM IPSUM 2 - SIT AMET</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
+    </div>
+
+    <div class="info-block">
+      <h3>LOCATIE</h3>
+      <p><strong>NIVEAU</strong> 3<br>
+      <strong>LEERWEG:</strong> derde leerweg<br>
+      <strong>START:</strong> Bij voorkeur kunnen beginnen zijn of meerdere startmomenten<br>
+      <strong>KOSTEN:</strong> 13900,- (inclusief examens, exclusief leermiddelen)</p>
+    </div>
+
+    <div class="info-block">
+      <h3>LOREM IPSUM 3 - SIT AMET</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut.</p>
+    </div>
+  </div>
+
+  <div class="call-to-action">
+    <h3>AANMELDEN OF MEER INFORMATIE?</h3>
+    <p>Neem contact op voor een persoonlijk gesprek of kom langs tijdens onze open dagen!</p>
+  </div>
+
+  <div class="footer-contact">
+    MEER INFORMATIE?<br>
+    Lorem ipsum - 012 345 678 90<br>
+    lorem@horizoncollege.nl
+  </div>
+</section>
+
+</body>
+</html>

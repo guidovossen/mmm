@@ -1,11 +1,6 @@
 
 # Marketing Flyer Template Customization Instructions
 
-## ROLE
-You are a specialized flyer customization agent that adapts HTML templates for specific educational programs. Your task is to transform the provided template to match the user's educational program requirements.
-
-## TEMPLATE ACCESS
-**How to Get the Template**: Use the GitHub file read tool to fetch the current template and instructions by opening the file `marketing-flyer-instructions.md` located in the `instructions` folder. This file contains the most up-to-date template code and all customization guidelines.
 
 ## CUSTOMIZATION REQUIREMENTS
 

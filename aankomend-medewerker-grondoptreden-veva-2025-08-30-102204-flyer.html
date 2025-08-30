@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<title>Aankomend Medewerker Grondoptreden (VeVa)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  @page { 
+    size: A5; 
+    margin: 0 !important; 
+    -webkit-print-color-adjust: exact; 
+    print-color-adjust: exact;
+  }
+  @media print {
+    * { 
+      box-sizing: border-box !important; 
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body { margin: 0 !important; padding: 0 !important; }
+    html { margin: 0 !important; padding: 0 !important; }
+    .page { 
+      page-break-after: always !important; 
+      page-break-inside: avoid !important; 
+      break-after: page !important;
+      break-inside: avoid !important;
+      margin: 0 !important;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { font-family: 'Inter', Helvetica, Arial, sans-serif; color:#000; margin: 0; padding: 0; }
+  .page { 
+    page-break-after: always; 
+    page-break-inside: avoid; 
+    width: 148mm; 
+    height: 210mm; 
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  .p1 {
+    background:#00373d; /* Donkergroen */
+    color:#fff; 
+    height: 210mm; 
+    width: 148mm; 
+    position: relative; 
+    box-sizing: border-box;
+    overflow: hidden; 
+    padding: 0.5mm 6mm 6mm 6mm;
+    display: grid;
+    grid-template-rows: auto 1fr 60px;
+    grid-template-areas: 
+      "header"
+      "cover"
+      "title";
+    gap: 0mm;
+    margin: 0;
+  }
+  .header { 
+    grid-area: header;
+    text-align: center; 
+    align-self: start;
+  }
+  .logo { 
+    height: 180pt; 
+    width: auto; 
+    max-width: 136mm;
+    margin: -5mm 0 0 0;
+    display: block;
+  }
+  .dept { 
+    font-family: 'Inter', sans-serif; 
+    font-weight:900; 
+    font-size:30pt; 
+    margin-top:0.5mm; 
+    letter-spacing:0.8pt; 
+    line-height: 0.85;
+    max-width: 136mm; /* Matches Talland width constraint */
+    word-wrap: break-word;
+    hyphens: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+  }
+  .cover {
+    grid-area: cover;
+    height: 120mm;
+    position: relative;
+    background: #00373d; /* Match page background instead of white */
+    overflow: hidden; 
+    align-self: center;
+  }
+  
+  .main-image, .top-image, .bottom-image {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  .main-image {
+    width: 85mm;
+    height: 60mm;
+    top: 15mm;
+    left: 15mm;
+    z-index: 1;
+    transform: rotate(-2deg);
+  }
+  
+  .top-image {
+    width: 55mm;
+    height: 42mm;
+    top: 5mm;
+    right: 20mm;
+    z-index: 3;
+    transform: rotate(5deg);
+  }
+  
+  .bottom-image {
+    width: 45mm;
+    height: 35mm;
+    bottom: 25mm;
+    right: 35mm;
+    z-index: 2;
+    transform: rotate(-3deg);
+  }
+  
+  .cover img { width:100%; height:100%; object-fit:cover; }
+  
+  /* Single image fallback */
+  .cover.single-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    grid-area: title;
+    text-align: center;
+    font-family: 'Inter', sans-serif; 
+    font-size: 32pt; 
+    font-weight: 900; 
+    line-height: 0.95;
+    align-self: end;
+    margin-bottom: 0;
+    letter-spacing: -0.8pt;
+  }
+
+  /* PAGE 2 */
+  .p2 { 
+    background:#fff; 
+    color:#000; 
+    padding: 6mm; 
+    height: 210mm; 
+    width: 148mm; 
+    box-sizing: border-box; 
+    position: relative; 
+    overflow: hidden;
+    page-break-after: avoid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr auto auto;
+    grid-template-areas: 
+      "header-left header-right"
+      "title title"
+      "description description"
+      "content-left content-right"
+      "cta cta"
+      "footer footer";
+    gap: 2.5mm;
+    margin: 0;
+  }
+  
+  .header-info { 
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-column: 1 / -1;
+    margin-bottom: 3mm;
+    font-family: 'Inter', sans-serif; 
+    font-weight: 700; 
+    font-size: 12pt; 
+    color: #00373d;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 15pt;
+    max-height: 15pt;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .header-left { 
+    justify-self: start; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-center { 
+    justify-self: center; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 2mm;
+    flex-shrink: 0;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  .header-right { 
+    justify-self: end; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 12pt !important;
+    line-height: 1 !important;
+  }
+  
+  .main-title { 
+    grid-area: title;
+    color:#00373d; 
+    font-family: 'Inter', sans-serif; 
+    font-size:18pt; 
+    font-weight:700; 
+    margin:0 0 3mm; 
+    line-height: 1.1; 
+    text-align: center;
+  }
+  
+  .main-description { 
+    grid-area: description;
+    font-family: 'Inter', sans-serif; 
+    font-size:10pt; 
+    font-weight:400; 
+    line-height:1.2; 
+    margin-bottom:2mm;
+    overflow: hidden;
+  }
+  
+  .main-description p { margin: 0 0 1.5mm 0; }
+  
+  .content-left {
+    grid-area: content-left;
+    font-family: 'Inter', sans-serif; 
+    font-size: 12pt; 
+    font-weight: 400;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+  
+  .content-right {
+    grid-area: content-right;
+    font-family: 'Inter', sans-serif; 
+    font-size: 12pt; 
+    font-weight: 400;
+    line-height: 1.2;
+    overflow: hidden;
+  }
+  
+  .info-block {
+    margin-bottom: 3mm;
+    border-left: 2px solid #00373d;
+    padding-left: 2.5mm;
+  }
+  
+  .info-block h3 {
+    color: #00373d;
+    font-weight: 700;
+    font-size: 12pt;
+    margin: 0 0 1mm 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+  }
+  
+  .info-block p {
+    margin: 0;
+    font-size: 10pt;
+    line-height: 1.1;
+  }
+  
+  .footer-contact { 
+    grid-area: footer;
+    color:#00373d; 
+    font-family: 'Inter', sans-serif; 
+    font-weight:900; 
+    text-align:center; 
+    font-size:9pt; 
+    line-height: 1.3; 
+    margin-top: auto;
+    padding: 2mm 0;
+  }
+  
+  .call-to-action {
+    grid-area: cta;
+    background: #00373d;
+    color: #fff;
+    padding: 4mm;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    margin: 2mm 0;
+  }
+  
+  .call-to-action h3 {
+    font-size: 12pt;
+    font-weight: 900;
+    margin: 0 0 2mm 0;
+    letter-spacing: 0.3pt;
+  }
+  
+  .call-to-action p {
+    font-size: 9pt;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.3;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page p1">
+  <div class="header">
+    <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/TallandCollege_Logo_Wit_RGB.svg" alt="Talland College" class="logo">
+  </div>
+
+  <div class="cover">
+    <div class="main-image">
+      <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/aankomend-medewerker-grondoptreden-veva/2025-08-27T05-52-26-006Z-8mwind.png" alt="Main Image">
+    </div>
+    <div class="top-image">
+      <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/aankomend-medewerker-grondoptreden-veva/2025-08-26T21-32-25-321Z-1buzli.png" alt="Top Image">
+    </div>
+    <div class="bottom-image">
+      <img src="https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/aankomend-medewerker-grondoptreden-veva/2025-08-27T12-47-50-586Z-djjjpa.png" alt="Bottom Image">
+    </div>
+  </div>
+
+  <div class="title">Aankomend Medewerker Grondoptreden (VeVa)</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page p2">
+  <div class="header-info">
+    <div class="header-left">MBO / BOL</div>
+    <div class="header-center">Niveau 2</div>
+    <div class="header-right">1,5 jaar</div>
+  </div>
+  
+  <h1 class="main-title">Aankomend Medewerker Grondoptreden (VeVa)</h1>
+  
+  <div class="main-description">
+    <p>Houd je van actie, avontuur en samenwerken? Tijdens deze opleiding leer je alles over werken bij Defensie en veiligheid. Je doet spannende oefeningen, draagt een uniform en krijgt uitdagende trainingen. Sport is een belangrijk onderdeel.</p>
+    <p>Kom naar de open dag en ontdek zelf de wereld van veiligheid en defensie!</p>
+  </div>
+  
+  <div class="content-left">
+    <h3>Wat leer je?</h3>
+    <ul>
+      <li>Militaire basisvaardigheden uitvoeren, waaronder beveiliging</li>
+      <li>Samenwerken en gezamenlijk taken uitvoeren</li>
+      <li>Algemene vakken zoals Nederlands, rekenen en burgerschap</li>
+      <li>Keuzedelen: verdieping blijvend fit, digitale vaardigheden, weerbaarheid</li>
+    </ul>
+  </div>
+  
+  <div class="content-right">
+    <div class="info-block">
+      <h3>Na je opleiding</h3>
+      <p>Je kunt aan de slag bij Defensie als infanterist en beschikt over basis militaire vaardigheden en goede samenwerking.</p>
+    </div>
+    
+    <div class="info-block">
+      <h3>Praktische info</h3>
+      <p><strong>Locatie:</strong> Purmerend (BOL)<br>
+      <strong>Niveau:</strong> 2<br>
+      <strong>Duur:</strong> 1,5 jaar<br>
+      <strong>Startperiode:</strong> Augustus</p>
+    </div>
+    
+    <div class="info-block">
+      <h3>Contact</h3>
+      <p>Bart van Gompel<br>
+      <a href="mailto:b.vangompel@talland.nl">b.vangompel@talland.nl</a><br>
+      Tel: 088 804 6000</p>
+    </div>
+  </div>
+  
+  <div class="call-to-action">
+    <h3>Kom naar de open dag!</h3>
+    <p>Ontdek onze opleiding, proef de sfeer en stel je vragen aan onze docenten en studenten. We zien je graag op onze open dag!</p>
+  </div>
+  
+  <div class="footer-contact">
+    MEER INFORMATIE?<br>
+    Talland College - Tel: 088 804 6000<br>
+    <a href="mailto:info@talland.nl">info@talland.nl</a>
+  </div>
+</section>
+
+</body>
+</html>

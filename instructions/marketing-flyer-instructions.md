@@ -14,7 +14,7 @@
 - Ensure all text is relevant to the new educational context
 
 ### 2. Color Selection
-**CRITICAL REQUIREMENT**: Choose ONE appropriate color from the Talland color palette based on the educational program's field/industry.
+**CRITICAL REQUIREMENT**: Choose RANDOM! ONE appropriate color from the Talland color palette based on the educational program's field/industry.
 
 | Color | Hex Code |
 |-------|----------|
@@ -31,10 +31,6 @@
 - **ANALYZE** the educational program to determine its field/industry
 - **MATCH** the color logically to the profession and industry context
 - **AVOID** inappropriate combinations (e.g., bright/playful colors for serious/formal professions)
-- Choose colors that logically match the profession
-- Consider industry associations and visual psychology
-- **APPLY** the selected color consistently throughout the template
-- Choose colors that logically match the profession
 - Consider industry associations and visual psychology
 - **APPLY** the selected color consistently throughout the template
 
@@ -96,8 +92,6 @@
 ### Department Names (Legacy Reference Only)
 **NOTE**: This section is for reference only - do NOT modify the department name in the template.
 - The template uses "COLLEGE" universally for all educational programs
-- Historical examples included: "TECHNIEK", "ZORG", "ECONOMIE", "CREATIEF", "BAKKERIJ"
-- All programs now use the unified "COLLEGE" branding
 
 ### Program Descriptions
 Replace Lorem ipsum content with:
@@ -117,6 +111,9 @@ Update footer with:
 - Appropriate contact person/department
 - Relevant phone number
 - Correct email address for the program
+
+
+
 
 ## TECHNICAL SPECIFICATIONS
 
@@ -175,9 +172,11 @@ https://raw.githubusercontent.com/guidovossen/mmm/refs/heads/main/img/[filename]
 ## OUTPUT REQUIREMENTS
 Deliver complete HTML file with all customizations applied, ready for immediate use in print or digital distribution.
 
-**Note**: Always use the GitHub file read tool to access `instructions/marketing-flyer-instructions.md` for the most current template version before beginning any customization work.
+**Note**: Always use the get-styleguide tool to access the most current template version before beginning any customization work.
 
 ---
+
+
 
 ## REFERENCE TEMPLATE
 
